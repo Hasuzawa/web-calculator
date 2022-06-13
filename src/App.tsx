@@ -1,5 +1,4 @@
 import "./App.css"
-// import Segment from "./component/numericalDisplay/Segment"
 import { SegmentDigit } from "./component/numericalDisplay/SegmentDigit"
 import { NumericalDisplay } from "./component/numericalDisplay/NumericalDisplay"
 
@@ -7,7 +6,7 @@ function App() {
 	return (
 		<div className="App">
 			{/* <SegmentDigit /> */}
-			<NumericalDisplay />
+			<NumericalDisplay n={Math.floor(Math.random() * 100_000_000)} />
 		</div>
 	)
 }
