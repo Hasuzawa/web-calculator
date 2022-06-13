@@ -15,7 +15,7 @@ const HorizontalSegment = styled(RawSegment)`
 	display: block;
 	width: ${({ length }) => length ?? 40}px;
 	height: ${({ thickness }) => thickness ?? 6}px;
-	background-color: ${({ active }) => (active ? "black" : "red")};
+	background-color: ${({ active }) => (active ? "black" : "transparent")};
 `
 const VerticalSegment = styled(HorizontalSegment)`
 	width: ${({ thickness }) => thickness ?? 6}px;

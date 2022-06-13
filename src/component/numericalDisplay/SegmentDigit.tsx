@@ -1,23 +1,37 @@
 import styled from "styled-components"
-import { IStyled } from "../../type"
+import { IStyled, Digit } from "../../type"
 import { segment } from "./Segment"
+import { converter } from "./converter"
 
-interface SegmentDigitProps extends IStyled {}
+export type SegmentFlags = {
+	a: boolean
+	b: boolean
+	c: boolean
+	d: boolean
+	e: boolean
+	f: boolean
+	g: boolean
+}
+
+interface SegmentDigitProps extends IStyled {
+	n: Digit
+}
 
 const RawSegmentDigit = (props: SegmentDigitProps) => {
+	const { a, b, c, d, e, f, g } = converter[props.n]
 	return (
 		<span className={props.className}>
-			<segment.Horizontal active />
+			<segment.Horizontal active={a} />
 			<Span>
-				<segment.Vertical active />
-				<segment.Vertical active />
+				<segment.Vertical active={f} />
+				<segment.Vertical active={b} />
 			</Span>
-			<segment.Horizontal active />
+			<segment.Horizontal active={g} />
 			<Span>
-				<segment.Vertical active />
-				<segment.Vertical active />
+				<segment.Vertical active={e} />
+				<segment.Vertical active={c} />
 			</Span>
-			<segment.Horizontal active />
+			<segment.Horizontal active={d} />
 		</span>
 	)
 }
@@ -40,4 +54,4 @@ const SegmentDigit = styled(RawSegmentDigit)`
 	align-items: center;
 `
 
-export default SegmentDigit
+export { SegmentDigit }
