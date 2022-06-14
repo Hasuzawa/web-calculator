@@ -12,8 +12,8 @@ const RawNumericalDisplay = (props: NumericalDisplayProps) => {
 	const digits = n.toString().split("") as Digit[]
 	return (
 		<div className={props.className}>
-			{digits.map((x: Digit) => (
-				<SegmentDigit n={x} />
+			{digits.map((x: Digit, idx: number) => (
+				<SegmentDigit n={x} key={idx} />
 			))}
 			{/* <SegmentDigit n={"0"} />
 			<SegmentDigit n={"1"} />

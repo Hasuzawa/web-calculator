@@ -1,11 +1,11 @@
-import { Digit } from "../../type"
+import { Digit, Default, SegmentId } from "../../type"
 import { SegmentFlags } from "./SegmentDigit"
 
 type Converter = {
-	[key in Digit]: SegmentFlags
+	[key in Digit | Default]: SegmentFlags
 }
 
-export const converter: Converter = {
+export const digitConverter: Converter = {
 	"0": {
 		a: true,
 		b: true,
@@ -96,4 +96,34 @@ export const converter: Converter = {
 		f: true,
 		g: true,
 	},
+	default: {
+		a: false,
+		b: false,
+		c: false,
+		d: false,
+		e: false,
+		f: false,
+		g: false,
+	},
 }
+
+type BitVector = {
+	[key in SegmentId]: number // binary number
+}
+
+const bitVector: BitVector = {
+	a: 0b1000000,
+	b: 0b0100000,
+	c: 0b0010000,
+	d: 0b0001000,
+	e: 0b0000100,
+	f: 0b0000010,
+	g: 0b0000001,
+}
+
+const digitHandler = {
+	// .hasOwnProp() &&  != typeof != Default
+	// & bitVector[]
+}
+
+const digitProxy = new Proxy(digitConverter, digitHandler)

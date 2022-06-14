@@ -1,16 +1,11 @@
 import styled from "styled-components"
-import { IStyled, Digit } from "../../type"
+import { IStyled, Digit, SegmentId } from "../../type"
 import { segment } from "./Segment"
-import { converter } from "./converter"
+import { digitConverter } from "./converter"
+import { HORIZONTAL_WIDTH } from "./conf"
 
 export type SegmentFlags = {
-	a: boolean
-	b: boolean
-	c: boolean
-	d: boolean
-	e: boolean
-	f: boolean
-	g: boolean
+	[key in SegmentId]: boolean
 }
 
 interface SegmentDigitProps extends IStyled {
@@ -18,7 +13,7 @@ interface SegmentDigitProps extends IStyled {
 }
 
 const RawSegmentDigit = (props: SegmentDigitProps) => {
-	const { a, b, c, d, e, f, g } = converter[props.n]
+	const { a, b, c, d, e, f, g } = digitConverter[props.n]
 	return (
 		<span className={props.className}>
 			<segment.Horizontal active={a} />
@@ -44,7 +39,7 @@ const RawSpan = (props: SpanProps) => {
 
 const Span = styled(RawSpan)`
 	display: flex;
-	column-gap: 40px;
+	column-gap: ${HORIZONTAL_WIDTH}px;
 	flex-flow: row nowrap;
 `
 

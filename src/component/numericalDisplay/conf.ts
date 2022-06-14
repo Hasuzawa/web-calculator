@@ -1,0 +1,6 @@
+export const HORIZONTAL_WIDTH = 40
+export const HORIZONTAL_HEIGHT = 6
+export const VERTICAL_WIDTH = HORIZONTAL_HEIGHT
+export const VERTICAL_HEIGHT = HORIZONTAL_WIDTH
+export const ACTIVE_COLOR = "black"
+export const INACTIVE_COLOR = "#DCDCDC"
