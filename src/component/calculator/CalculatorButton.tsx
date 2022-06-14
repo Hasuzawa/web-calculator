@@ -1,17 +1,22 @@
 import styled from "styled-components"
 import { Digit, Operator, IStyled } from "../../type"
 
-interface NumberButtonProps extends IStyled {
-	label: Digit | Operator | "="
+interface CalculatorButtonProps extends IStyled {
+	label: Digit | Operator | "=" | "."
 	onClick: () => void
 }
 
-const RawNumberButton = (props: NumberButtonProps) => {
-	return <span className={props.className}>{props.label}</span>
+const RawCalculatorButton = (props: CalculatorButtonProps) => {
+	return (
+		<button className={props.className} onClick={props.onClick}>
+			{props.label}
+		</button>
+	)
 }
 
-const NumberButton = styled(RawNumberButton)`
+const CalculatorButton = styled(RawCalculatorButton)`
 	display: inline-block;
+	cursor: pointer;
 	/* justify-content: center;
 	align-items: center; */
 	/* vertical-align: center; */
@@ -29,4 +34,4 @@ const NumberButton = styled(RawNumberButton)`
 	}
 `
 
-export { NumberButton }
+export { CalculatorButton }
