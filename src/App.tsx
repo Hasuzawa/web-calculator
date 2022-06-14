@@ -7,7 +7,10 @@ function App() {
 	return (
 		<div className="App">
 			{/* <SegmentDigit /> */}
-			<NumericalDisplay n={Math.floor(Math.random() * 100_000_000)} />
+			<NumericalDisplay
+				n={Math.floor(Math.random() * 100_000_000)}
+				minDigit={5}
+			/>
 			<Calculator />
 		</div>
 	)

@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { IStyled, Digit, SegmentId } from "../../type"
 import { segment } from "./Segment"
-import { digitConverter } from "./converter"
+import { digitConverterProxy } from "./converter"
 import { HORIZONTAL_WIDTH } from "./conf"
 
 export type SegmentFlags = {
@@ -13,7 +13,7 @@ interface SegmentDigitProps extends IStyled {
 }
 
 const RawSegmentDigit = (props: SegmentDigitProps) => {
-	const { a, b, c, d, e, f, g } = digitConverter[props.n]
+	const { a, b, c, d, e, f, g } = digitConverterProxy[props.n]
 	return (
 		<span className={props.className}>
 			<segment.Horizontal active={a} />

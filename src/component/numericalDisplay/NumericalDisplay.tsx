@@ -5,11 +5,15 @@ import { Digit } from "../../type"
 
 interface NumericalDisplayProps extends IStyled {
 	n: number
+	minDigit: number
 }
 
 const RawNumericalDisplay = (props: NumericalDisplayProps) => {
-	const { n } = props
-	const digits = n.toString().split("") as Digit[]
+	const { n, minDigit } = props
+	let digits = n.toString().split("") as Digit[]
+	while (digits.length < minDigit) {
+		digits = ["0", ...digits]
+	}
 	return (
 		<div className={props.className}>
 			{digits.map((x: Digit, idx: number) => (

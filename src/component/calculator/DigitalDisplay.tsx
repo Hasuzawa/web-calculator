@@ -9,7 +9,7 @@ interface DigitalDisplayProps extends IStyled {
 const RawDigitalDisplay = (props: DigitalDisplayProps) => {
 	return (
 		<div className={props.className}>
-			<NumericalDisplay n={props.n} />
+			<NumericalDisplay n={props.n} minDigit={5} />
 		</div>
 	)
 }
